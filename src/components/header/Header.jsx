@@ -1,15 +1,34 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Header, Logo, NavBar, NavList, List, MenuIcon } from "./styled";
 import { HashLink as Link } from "react-router-hash-link";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function header() {
-    const [menuIcon] = useState(<FaBars/>);
+    const [menuIcon, setMenuIcon] = useState(<FaBars/>);
+    const navRef = useRef(null);
+
+    const toggleMenu = () => {
+        if(!navRef.current.classList.contains("active")) {
+            navRef.current.classList.add("active");
+            setMenuIcon(<FaTimes/>);
+        }
+        else {
+            navRef.current.classList.remove("active");
+            setMenuIcon(<FaBars/>);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            navRef.current.classList.remove("active");
+            setMenuIcon(<FaBars/>);
+        });
+    }, []);
 
     return(
         <Header>
             <Logo href="/">Portfolio</Logo>
-            <NavBar>
+            <NavBar ref={navRef}>
                 <NavList>
                     <List>
                         <Link smooth to={"#home"}>Home</Link>
@@ -29,7 +48,7 @@ export default function header() {
                 </NavList>
             </NavBar>
             <a href="#" className="button">Download CV</a>
-            <MenuIcon>
+            <MenuIcon onClick={toggleMenu}>
                 {menuIcon}
             </MenuIcon>
         </Header>

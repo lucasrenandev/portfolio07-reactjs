@@ -24,12 +24,24 @@ export const GlobalStyles = createGlobalStyle`
         --p-font: 1.7rem;
         --border: 0.2rem solid rgba(0, 0, 0, 0.1);
         --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        @media (max-width: 768px) {
+            --h1-font: 5rem;
+        }
+        @media (max-width: 520px) {
+            --h1-font: 4rem;
+        }
     }
 
     html {
         font-size: 62.5%;
         scroll-behavior: smooth;
         scroll-padding-top: 7rem;
+        @media (max-width: 992px) {
+            font-size: 55%;
+        }
+        @media (max-width: 520px) {
+            font-size: 50%;
+        }
     }
 
     html::-webkit-scrollbar {
@@ -52,6 +64,9 @@ export const GlobalStyles = createGlobalStyle`
     section {
         width: 100%;
         padding: 5rem 7%;
+        @media (max-width: 768px) {
+            padding: 3rem;
+        }
     }
 
     .heading {

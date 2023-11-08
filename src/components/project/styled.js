@@ -9,6 +9,9 @@ export const ProjectContent = styled.figure`
     align-items: center;
     gap: 2rem;
     margin-top: 4rem;
+    @media (max-width: 320px) {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
 `
 export const Box = styled.a`
     position: relative;

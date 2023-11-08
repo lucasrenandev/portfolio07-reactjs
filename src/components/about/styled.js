@@ -10,7 +10,11 @@ export const InfoContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 15rem;
+    @media (max-width: 768px) {
+        gap: 5rem;
+    }
 `
 export const InfoBox = styled.div`
     display: flex;
@@ -24,6 +28,9 @@ export const Paragraph = styled.p`
         font-size: var(--p-font);
         color: var(--light-black);
     }   
+    @media (max-width: 320px) {
+        font-size: var(--p-font);
+    }
 `
 export const SkillsContainer = styled.article`
 
@@ -31,10 +38,11 @@ export const SkillsContainer = styled.article`
 export const SkillsContent = styled.div`
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
 `
 export const SkillsBox = styled.div`
-    flex: 1 1 20rem;
+    flex: 1 1 40rem;
 `
 export const Progress = styled.div`
     display: flex;

@@ -10,11 +10,17 @@ export const ContactContent = styled.div`
     border: var(--border);
     border-radius: 0.5rem;
     margin-top: 4rem;
-    box-shadow: var(--box-shadow);
-    `
+    box-shadow: var(--box-shadow);  
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+`
 export const Image = styled.figure`
     width: 100%;
     height: 100%;
+    @media (max-width: 992px) {
+        display: none;
+    }
 `
 export const Img = styled.img`
     width: 100%;
@@ -41,16 +47,15 @@ export const Input = styled.input`
     border-radius: 0.5rem;
     &:focus ~ label,
     &:valid ~ label {
-        transform: translate(-0.8rem, -2.6rem);
+        transform: translate(-8px, -25px);
         color: var(--primary);
         font-size: 1.3rem;
     }
 `
 export const Label = styled.label`
     position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.6rem 1rem;
+    top: 6px;
+    left: 10px;
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--light-black);
@@ -64,7 +69,7 @@ export const TextArea = styled.textarea`
     padding: 0.6rem 1rem;
     &:focus ~ label,
     &:valid ~ label {
-        transform: translate(-0.8rem, -2.6rem);
+        transform: translate(-8px, -25px);
         color: var(--primary);
         font-size: 1.3rem;
     }
